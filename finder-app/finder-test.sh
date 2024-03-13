@@ -34,9 +34,8 @@ rm -rf "${WRITEDIR}"
 # create $WRITEDIR if not assignment1
 assignment=`cat ../conf/assignment.txt`
 
-echo ${assignment}
-
-
+if [ $assignment != 'assignment1' ]
+then
 	mkdir -p "$WRITEDIR"
 
 	#The WRITEDIR is in quotes because if the directory path consists of spaces, then variable substitution will consider it as multiple argument.
@@ -48,6 +47,8 @@ echo ${assignment}
 	else
 		exit 1
 	fi
+fi
+
 #echo "Removing the old writer utility and compiling as a native application"
 #make clean
 #make
