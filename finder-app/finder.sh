@@ -16,6 +16,6 @@ fi
 
 X=$(find ${path} -type f | wc -l) 
 
-Y=$(find ${path} -type f -exec cat {} \; | grep ${text} | wc -l)
+Y=$(find ${path} -type f -exec grep -o "${text}" {} + | wc -l)
 
 echo "The number of files are ${X} and the number of matching lines are ${Y}"
